@@ -1,0 +1,5 @@
+.log
+
+spec/js/*
+
+node_modules

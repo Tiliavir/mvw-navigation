@@ -1,0 +1,42 @@
+{
+  "name": "mvw-navigation",
+  "version": "1.0.1",
+  "description": "Module to generate a bootstrap site navigation from a given structure file.",
+  "keywords": [
+    "website",
+    "navigation",
+    "structure"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "tiliavir",
+    "email": "tiliavir@gmail.com"
+  },
+  "types": "js/index.d.ts",
+  "main": "js/index.js",
+  "devDependencies": {
+    "@types/node": "^0.0.2",
+    "@types/jasmine": "^2.5.38",
+    "@types/jsonschema": "^0.0.5",
+    "@types/pug": "^2.0.3",
+    "jasmine": "^2.5.2",
+    "typescript": "^2.1.4",
+    "tslint": "^4.0.2"
+  },
+  "dependencies": {
+    "jsonschema": "^1.1.1",
+    "pug": "^2.0.0-beta6"
+  },
+  "scripts": {
+    "build": "tsc -p ./ts",
+    "test": "tslint --project ./ts ./ts && tsc -p ./ts && tsc -p ./spec && jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiliavir/mvw-navigation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tiliavir/mvw-navigation/issues"
+  },
+  "homepage": "https://github.com/tiliavir/mvw-navigation#readme"
+}
