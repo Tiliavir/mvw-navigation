@@ -1,6 +1,6 @@
 {
   "name": "mvw-navigation",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Module to generate a bootstrap site navigation from a given structure file.",
   "keywords": [
     "website",
