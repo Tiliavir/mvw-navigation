@@ -98,15 +98,16 @@ export class Navigation {
   private renderBreadcrumb(breadcrumb: INavigationNode[]): string {
     let pug: string = "ol.breadcrumb(itemprop='breadcrumb' itemscope itemtype='http://schema.org/BreadcrumbList')";
     for (let i: number = 0; i < breadcrumb.length; i++) {
-      if (breadcrumb[i].referencedFile) {
-        pug += indent(2, true) + "li(itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem')"
-            + indent(4, true) + `a(itemprop='item' href='${breadcrumb[i].referencedFile}${this.fileExtension}')`
-            + indent(6, true) + `span(itemprop='name') ${breadcrumb[i].title}`
-            + indent(6, true) + `meta(itemprop='position' content='${i + 1}')`;
+      let bc = breadcrumb[i];
+      if (isNullOrEmpty(bc.referencedFile) || i === breadcrumb.length - 1) {
+        pug += indent(2, true) + `li${((i === breadcrumb.length - 1) ? ".active" : "")}(itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem')`
+            + indent(4, true) + `span(itemprop='name') ${bc.title}`
+            + indent(4, true) + `meta(itemprop='position' content='${i + 1}')`;
       } else {
         pug += indent(2, true) + "li(itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem')"
-            + indent(4, true) + `span(itemprop='name') ${breadcrumb[i].title}`
-            + indent(4, true) + `meta(itemprop='position' content='${i + 1}')`;
+            + indent(4, true) + `a(itemprop='item' href='${bc.referencedFile}${this.fileExtension}')`
+            + indent(6, true) + `span(itemprop='name') ${bc.title}`
+            + indent(6, true) + `meta(itemprop='position' content='${i + 1}')`;
       }
     }
     return pug;

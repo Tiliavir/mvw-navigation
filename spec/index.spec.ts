@@ -58,10 +58,23 @@ describe("Navigation: test getBreadcrumb", () => {
         expect(() => navigation.getBreadcrumb("notAvailable")).toThrow();
     });
     it("available breadcrumbs are as expected", () => {
-        let navigation: Navigation = new Navigation([]);
+        let navigation: Navigation = new Navigation(StructureSimple);
 
-        expect(navigation.getBreadcrumb).toThrow();
-        expect(() => navigation.getBreadcrumb("index")).toThrow();
-        expect(() => navigation.getBreadcrumb("notAvailable")).toThrow();
+        expect(navigation.getBreadcrumb("foo").replace(/\r\n/g, "\n")).toEqual(`ol.breadcrumb(itemprop='breadcrumb' itemscope itemtype='http://schema.org/BreadcrumbList')
+  li(itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem')
+    a(itemprop='item' href='index.html')
+      span(itemprop='name') Start
+      meta(itemprop='position' content='1')
+  li.active(itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem')
+    span(itemprop='name') Foo
+    meta(itemprop='position' content='2')`);
+        expect(navigation.getBreadcrumb("bar").replace(/\r\n/g, "\n")).toEqual(`ol.breadcrumb(itemprop='breadcrumb' itemscope itemtype='http://schema.org/BreadcrumbList')
+  li(itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem')
+    a(itemprop='item' href='index.html')
+      span(itemprop='name') Start
+      meta(itemprop='position' content='1')
+  li.active(itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem')
+    span(itemprop='name') Bar
+    meta(itemprop='position' content='2')`);
     });
 });

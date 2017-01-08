@@ -76,16 +76,17 @@ var Navigation = (function () {
     Navigation.prototype.renderBreadcrumb = function (breadcrumb) {
         var pug = "ol.breadcrumb(itemprop='breadcrumb' itemscope itemtype='http://schema.org/BreadcrumbList')";
         for (var i = 0; i < breadcrumb.length; i++) {
-            if (breadcrumb[i].referencedFile) {
-                pug += util_1.indent(2, true) + "li(itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem')"
-                    + util_1.indent(4, true) + ("a(itemprop='item' href='" + breadcrumb[i].referencedFile + this.fileExtension + "')")
-                    + util_1.indent(6, true) + ("span(itemprop='name') " + breadcrumb[i].title)
-                    + util_1.indent(6, true) + ("meta(itemprop='position' content='" + (i + 1) + "')");
+            var bc = breadcrumb[i];
+            if (util_1.isNullOrEmpty(bc.referencedFile) || i === breadcrumb.length - 1) {
+                pug += util_1.indent(2, true) + ("li" + ((i === breadcrumb.length - 1) ? ".active" : "") + "(itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem')")
+                    + util_1.indent(4, true) + ("span(itemprop='name') " + bc.title)
+                    + util_1.indent(4, true) + ("meta(itemprop='position' content='" + (i + 1) + "')");
             }
             else {
                 pug += util_1.indent(2, true) + "li(itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem')"
-                    + util_1.indent(4, true) + ("span(itemprop='name') " + breadcrumb[i].title)
-                    + util_1.indent(4, true) + ("meta(itemprop='position' content='" + (i + 1) + "')");
+                    + util_1.indent(4, true) + ("a(itemprop='item' href='" + bc.referencedFile + this.fileExtension + "')")
+                    + util_1.indent(6, true) + ("span(itemprop='name') " + bc.title)
+                    + util_1.indent(6, true) + ("meta(itemprop='position' content='" + (i + 1) + "')");
             }
         }
         return pug;
