@@ -50,16 +50,13 @@ var Navigation = (function () {
                     ? ".dropdown"
                     : "")
                 + util_1.indent(n + 2, true) + (type !== NAV_CONST.allplain
-                ? "a.dropdown-toggle(href='#' data-toggle='dropdown') "
+                ? "a(href='#') "
                 : (entry.referencedFile
                     ? "a(href=\"" + entry.referencedFile + this.fileExtension + "\") "
                     : "div "))
                 + entry.title
-                + (type !== NAV_CONST.allplain
-                    ? util_1.indent(n + 4, true) + "b.caret"
-                    : "")
                 + util_1.indent(n + 2, true)
-                + ("ul" + (type !== NAV_CONST.allplain ? ".dropdown-menu" : ""));
+                + "ul";
             for (var i = 0; i < entry.children.length; i++) {
                 pug += this.writeNavigationEntry(entry.children[i], n + 4, type);
             }
@@ -110,7 +107,7 @@ var Navigation = (function () {
     Navigation.prototype.writeNavigation = function (type, writeHtml, excludedFromAllPlain) {
         if (writeHtml === void 0) { writeHtml = false; }
         if (excludedFromAllPlain === void 0) { excludedFromAllPlain = ["401", "404"]; }
-        var pug = "ul" + (type !== NAV_CONST.allplain ? ".nav.navbar-nav.navbar-right" : "");
+        var pug = "ul";
         if (!util_1.isNullOrUndefined(this.structure) && this.structure.length > 0) {
             for (var _i = 0, _a = this.structure; _i < _a.length; _i++) {
                 var node = _a[_i];

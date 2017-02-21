@@ -72,16 +72,13 @@ export class Navigation {
           ? ".dropdown"
           : "")
         + indent(n + 2, true) + (type !== NAV_CONST.allplain
-          ? "a.dropdown-toggle(href='#' data-toggle='dropdown') "
+          ? "a(href='#') "
           : (entry.referencedFile
             ? `a(href="${entry.referencedFile}${this.fileExtension}") `
             : "div "))
         + entry.title
-        + (type !== NAV_CONST.allplain
-          ? indent(n + 4, true) + "b.caret"
-          : "")
         + indent(n + 2, true)
-        + `ul${type !== NAV_CONST.allplain ? ".dropdown-menu" : ""}`;
+        + `ul`;
       for (let i: number = 0; i < entry.children.length; i++) {
         pug += this.writeNavigationEntry(entry.children[i], n + 4, type);
       }
@@ -135,7 +132,7 @@ export class Navigation {
   public writeNavigation(type: NavigationType,
                          writeHtml: boolean = false,
                          excludedFromAllPlain: string[] = ["401", "404"]): string {
-    let pug: string = `ul${type !== NAV_CONST.allplain ? ".nav.navbar-nav.navbar-right" : ""}`;
+    let pug: string = "ul";
 
     if (!isNullOrUndefined(this.structure) && this.structure.length > 0) {
       for (let node of this.structure) {

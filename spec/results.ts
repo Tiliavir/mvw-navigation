@@ -58,15 +58,14 @@ export const navAll = `ul
       li(class=(referencedFile === 'baz_3-rerum-hic' ? 'active' : undefined))
         a(href='baz_3-rerum-hic.html') Rerum Hic`;
 
-export const navTop = `ul.nav.navbar-nav.navbar-right
+export const navTop = `ul
   li(class=(referencedFile === 'dolor' ? 'active' : undefined))
     a(href='dolor.html') Dolor Sit
   li(class=(referencedFile === 'neo' ? 'active' : undefined))
     a(href='neo.html') Neo
   li.dropdown
-    a.dropdown-toggle(href='#' data-toggle='dropdown') Dolore Magna
-      b.caret
-    ul.dropdown-menu
+    a(href='#') Dolore Magna
+    ul
       li(class=(referencedFile === 'amet' ? 'active' : undefined))
         a(href='amet.html') Amet Consetetur
       li(class=(referencedFile === 'sadipsicng' ? 'active' : undefined))
@@ -80,9 +79,8 @@ export const navTop = `ul.nav.navbar-nav.navbar-right
       li(class=(referencedFile === 'invidunt' ? 'active' : undefined))
         a(href='invidunt.html') Invidunt ut Labore
   li.dropdown
-    a.dropdown-toggle(href='#' data-toggle='dropdown') At vero
-      b.caret
-    ul.dropdown-menu
+    a(href='#') At vero
+    ul
       li(class=(referencedFile === 'aliquyam' ? 'active' : undefined))
         a(href='aliquyam.html') Aliquyam
       li(class=(referencedFile === 'erat' ? 'active' : undefined))
@@ -96,7 +94,7 @@ export const navTop = `ul.nav.navbar-nav.navbar-right
   li(class=(referencedFile === 'corrupti-quos-dolores' ? 'active' : undefined))
     a(href='corrupti-quos-dolores.html') Corrupti quos Dolores`
 
-export const navFooter = `ul.nav.navbar-nav.navbar-right
+export const navFooter = `ul
   li(class=(referencedFile === 'quibusdam' ? 'active' : undefined))
     a(href='quibusdam.html') Quibusdam
   li(class=(referencedFile === 'rerum' ? 'active' : undefined))

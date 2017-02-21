@@ -8,5 +8,8 @@ and a footer navigation.
 The output can either be plain HTML or pug.
 
 ## Releases
-- **1.0.2**: added .npmignore
+- **2.0.0**: bootstrap independent
+
+- **1.0.4**: npm update
 - **1.0.3**: fixed breadcrumbs - last one now has class 'active', npm update
+- **1.0.2**: added .npmignore
