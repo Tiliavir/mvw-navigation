@@ -1,4 +1,4 @@
-﻿import { Validator, IJSONSchemaResult } from "jsonschema";
+﻿import { Validator, ValidatorResult } from "jsonschema";
 import { render } from "pug";
 import { SiteStructureSchema } from "./site-structure-schema";
 import { isNullOrUndefined, isNullOrEmpty, indent } from "./util";
@@ -44,7 +44,7 @@ export class Navigation {
       this.fileExtension = `.${fileExtension}`;
     }
 
-    let validationResult: IJSONSchemaResult = new Validator().validate(s, SiteStructureSchema);
+    let validationResult: ValidatorResult = new Validator().validate(s, SiteStructureSchema);
     if (!validationResult.valid) {
       console.error(validationResult);
       throw {

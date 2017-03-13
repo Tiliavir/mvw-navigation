@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.SiteStructureSchema = {
     "$schema": "http://json-schema.org/draft-04/schema",
     "title": "JSON Schema for the site structure file",

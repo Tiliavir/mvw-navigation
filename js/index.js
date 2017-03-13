@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var jsonschema_1 = require("jsonschema");
 var pug_1 = require("pug");
 var site_structure_schema_1 = require("./site-structure-schema");

@@ -28,6 +28,20 @@ describe("Navigation: test writeNavigation", () => {
         expect(html).toEqual(`<ul><li><a href="foo.html">Foo</a></li><li><a href="bar.html">Bar</a></li></ul>`);
     });
 
+    it("Navigation: simple structure", () => {
+        let navigation: Navigation = new Navigation(StructureSimple, "html", {referencedFile: "index", title: "Start"});
+
+        let pug: string = navigation.writeNavigation("allplain");
+        expect(pug.replace(/\r\n/g, "\n")).toEqual(`ul
+  li(class=(referencedFile === 'foo' ? 'active' : undefined))
+    a(href='foo.html') Foo
+  li(class=(referencedFile === 'bar' ? 'active' : undefined))
+    a(href='bar.html') Bar`);
+
+        let html: string = navigation.writeNavigation("allplain", true);
+        expect(html).toEqual(`<ul><li><a href="foo.html">Foo</a></li><li><a href="bar.html">Bar</a></li></ul>`);
+    });
+
     it("complex structure", () => {
         let navigation: Navigation = new Navigation(StructureComplex);
 
