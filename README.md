@@ -8,6 +8,7 @@ and a footer navigation.
 The output can either be plain HTML or pug.
 
 ## Releases
+- **2.0.4**: npm update
 - **2.0.3**: npm update
 - **2.0.2**: npm update
 - **2.0.1**: npm update, new test
