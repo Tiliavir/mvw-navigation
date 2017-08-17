@@ -15,7 +15,7 @@
   "types": "js/index.d.ts",
   "main": "js/index.js",
   "devDependencies": {
-    "@types/node": "8.0.22",
+    "@types/node": "8.0.23",
     "@types/jasmine": "2.5.53",
     "@types/jsonschema": "1.1.1",
     "@types/pug": "2.0.4",
