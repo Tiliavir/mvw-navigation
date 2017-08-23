@@ -1,7 +1,7 @@
 import { EOL } from "os";
 
 export const isNullOrUndefined: (o: any) => boolean = (o: any): boolean => {
-  return o == null && o == undefined;
+  return o === null || o === undefined;
 };
 
 export const isNullOrEmpty: (o: any) => boolean = (o: any): boolean => {
