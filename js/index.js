@@ -12,7 +12,7 @@ var NAV_CONST = {
     // e.g. for sitemaps
     allplain: "allplain"
 };
-var Navigation = (function () {
+var Navigation = /** @class */ (function () {
     function Navigation(s, fileExtension, breadcrumbStartNode) {
         if (fileExtension === void 0) { fileExtension = "html"; }
         if (breadcrumbStartNode === void 0) { breadcrumbStartNode = { title: "Start", referencedFile: "index" }; }
