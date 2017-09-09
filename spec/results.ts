@@ -1,106 +1,106 @@
 export const navAll = `ul
-  li(class=(referencedFile === 'index' ? 'active' : undefined))
-    a(href='index.html') Lorem Impsum
-  li(class=(referencedFile === 'dolor' ? 'active' : undefined))
-    a(href='dolor.html') Dolor Sit
-  li(class=(referencedFile === 'neo' ? 'active' : undefined))
-    a(href='neo.html') Neo
+  li(class=(referencedFile === "index" ? "active" : undefined))
+    a(href="index.html") Lorem Impsum
+  li(class=(referencedFile === "dolor" ? "active" : undefined))
+    a(href="dolor.html") Dolor Sit
+  li(class=(referencedFile === "neo" ? "active" : undefined))
+    a(href="neo.html") Neo
   li
     div Dolore Magna
     ul
-      li(class=(referencedFile === 'amet' ? 'active' : undefined))
-        a(href='amet.html') Amet Consetetur
-      li(class=(referencedFile === 'sadipsicng' ? 'active' : undefined))
-        a(href='sadipsicng.html') Sadipscing Elitr
-      li(class=(referencedFile === 'sed' ? 'active' : undefined))
-        a(href='sed.html') Sed Diam
-      li(class=(referencedFile === 'nonumy' ? 'active' : undefined))
-        a(href='nonumy.html') Nonumy Eirmod
-      li(class=(referencedFile === 'tempor' ? 'active' : undefined))
-        a(href='tempor.html') Tempor
-      li(class=(referencedFile === 'invidunt' ? 'active' : undefined))
-        a(href='invidunt.html') Invidunt ut Labore
+      li(class=(referencedFile === "amet" ? "active" : undefined))
+        a(href="amet.html") Amet Consetetur
+      li(class=(referencedFile === "sadipsicng" ? "active" : undefined))
+        a(href="sadipsicng.html") Sadipscing Elitr
+      li(class=(referencedFile === "sed" ? "active" : undefined))
+        a(href="sed.html") Sed Diam
+      li(class=(referencedFile === "nonumy" ? "active" : undefined))
+        a(href="nonumy.html") Nonumy Eirmod
+      li(class=(referencedFile === "tempor" ? "active" : undefined))
+        a(href="tempor.html") Tempor
+      li(class=(referencedFile === "invidunt" ? "active" : undefined))
+        a(href="invidunt.html") Invidunt ut Labore
   li
     div At vero
     ul
-      li(class=(referencedFile === 'aliquyam' ? 'active' : undefined))
-        a(href='aliquyam.html') Aliquyam
-      li(class=(referencedFile === 'erat' ? 'active' : undefined))
-        a(href='erat.html') Erat Set Diam
-      li(class=(referencedFile === 'voluptua' ? 'active' : undefined))
-        a(href='voluptua.html') Voluptua
-  li(class=(referencedFile === 'eos-et-accusamus' ? 'active' : undefined))
-    a(href='eos-et-accusamus.html') Eos et Accusamus
-  li(class=(referencedFile === 'iusto dignissimos' ? 'active' : undefined))
-    a(href='iusto dignissimos.html') Iusto Dignissimos
-  li(class=(referencedFile === 'corrupti-quos-dolores' ? 'active' : undefined))
-    a(href='corrupti-quos-dolores.html') Corrupti quos Dolores
+      li(class=(referencedFile === "aliquyam" ? "active" : undefined))
+        a(href="aliquyam.html") Aliquyam
+      li(class=(referencedFile === "erat" ? "active" : undefined))
+        a(href="erat.html") Erat Set Diam
+      li(class=(referencedFile === "voluptua" ? "active" : undefined))
+        a(href="voluptua.html") Voluptua
+  li(class=(referencedFile === "eos-et-accusamus" ? "active" : undefined))
+    a(href="eos-et-accusamus.html") Eos et Accusamus
+  li(class=(referencedFile === "iusto dignissimos" ? "active" : undefined))
+    a(href="iusto dignissimos.html") Iusto Dignissimos
+  li(class=(referencedFile === "corrupti-quos-dolores" ? "active" : undefined))
+    a(href="corrupti-quos-dolores.html") Corrupti quos Dolores
   li
     a(href="quibusdam.html") Quibusdam
     ul
-      li(class=(referencedFile === 'voluptatibus' ? 'active' : undefined))
-        a(href='voluptatibus.html') Voluptatibus
-      li(class=(referencedFile === 'denounce' ? 'active' : undefined))
-        a(href='denounce.html') Denounce
-      li(class=(referencedFile === 'molestias-excepturi' ? 'active' : undefined))
-        a(href='molestias-excepturi.html') Molestias Excepturi
-  li(class=(referencedFile === 'rerum' ? 'active' : undefined))
-    a(href='rerum.html') Rerum
-  li(class=(referencedFile === 'sapiente' ? 'active' : undefined))
-    a(href='sapiente.html') Sapiente
+      li(class=(referencedFile === "voluptatibus" ? "active" : undefined))
+        a(href="voluptatibus.html") Voluptatibus
+      li(class=(referencedFile === "denounce" ? "active" : undefined))
+        a(href="denounce.html") Denounce
+      li(class=(referencedFile === "molestias-excepturi" ? "active" : undefined))
+        a(href="molestias-excepturi.html") Molestias Excepturi
+  li(class=(referencedFile === "rerum" ? "active" : undefined))
+    a(href="rerum.html") Rerum
+  li(class=(referencedFile === "sapiente" ? "active" : undefined))
+    a(href="sapiente.html") Sapiente
   li
     div Earum
     ul
-      li(class=(referencedFile === 'foo_1-recusandae' ? 'active' : undefined))
-        a(href='foo_1-recusandae.html') Recusandae
-      li(class=(referencedFile === 'bar_2-impedit-quo-minus-id' ? 'active' : undefined))
-        a(href='bar_2-impedit-quo-minus-id.html') Impedit quo minus id
-      li(class=(referencedFile === 'baz_3-rerum-hic' ? 'active' : undefined))
-        a(href='baz_3-rerum-hic.html') Rerum Hic`;
+      li(class=(referencedFile === "foo_1-recusandae" ? "active" : undefined))
+        a(href="foo_1-recusandae.html") Recusandae
+      li(class=(referencedFile === "bar_2-impedit-quo-minus-id" ? "active" : undefined))
+        a(href="bar_2-impedit-quo-minus-id.html") Impedit quo minus id
+      li(class=(referencedFile === "baz_3-rerum-hic" ? "active" : undefined))
+        a(href="baz_3-rerum-hic.html") Rerum Hic`;
 
 export const navTop = `ul
-  li(class=(referencedFile === 'dolor' ? 'active' : undefined))
-    a(href='dolor.html') Dolor Sit
-  li(class=(referencedFile === 'neo' ? 'active' : undefined))
-    a(href='neo.html') Neo
+  li(class=(referencedFile === "dolor" ? "active" : undefined))
+    a(href="dolor.html") Dolor Sit
+  li(class=(referencedFile === "neo" ? "active" : undefined))
+    a(href="neo.html") Neo
   li.dropdown
-    a(href='#') Dolore Magna
+    a(href="#") Dolore Magna
     ul
-      li(class=(referencedFile === 'amet' ? 'active' : undefined))
-        a(href='amet.html') Amet Consetetur
-      li(class=(referencedFile === 'sadipsicng' ? 'active' : undefined))
-        a(href='sadipsicng.html') Sadipscing Elitr
-      li(class=(referencedFile === 'sed' ? 'active' : undefined))
-        a(href='sed.html') Sed Diam
-      li(class=(referencedFile === 'nonumy' ? 'active' : undefined))
-        a(href='nonumy.html') Nonumy Eirmod
-      li(class=(referencedFile === 'tempor' ? 'active' : undefined))
-        a(href='tempor.html') Tempor
-      li(class=(referencedFile === 'invidunt' ? 'active' : undefined))
-        a(href='invidunt.html') Invidunt ut Labore
+      li(class=(referencedFile === "amet" ? "active" : undefined))
+        a(href="amet.html") Amet Consetetur
+      li(class=(referencedFile === "sadipsicng" ? "active" : undefined))
+        a(href="sadipsicng.html") Sadipscing Elitr
+      li(class=(referencedFile === "sed" ? "active" : undefined))
+        a(href="sed.html") Sed Diam
+      li(class=(referencedFile === "nonumy" ? "active" : undefined))
+        a(href="nonumy.html") Nonumy Eirmod
+      li(class=(referencedFile === "tempor" ? "active" : undefined))
+        a(href="tempor.html") Tempor
+      li(class=(referencedFile === "invidunt" ? "active" : undefined))
+        a(href="invidunt.html") Invidunt ut Labore
   li.dropdown
-    a(href='#') At vero
+    a(href="#") At vero
     ul
-      li(class=(referencedFile === 'aliquyam' ? 'active' : undefined))
-        a(href='aliquyam.html') Aliquyam
-      li(class=(referencedFile === 'erat' ? 'active' : undefined))
-        a(href='erat.html') Erat Set Diam
-      li(class=(referencedFile === 'voluptua' ? 'active' : undefined))
-        a(href='voluptua.html') Voluptua
-  li(class=(referencedFile === 'eos-et-accusamus' ? 'active' : undefined))
-    a(href='eos-et-accusamus.html') Eos et Accusamus
-  li(class=(referencedFile === 'iusto dignissimos' ? 'active' : undefined))
-    a(href='iusto dignissimos.html') Iusto Dignissimos
-  li(class=(referencedFile === 'corrupti-quos-dolores' ? 'active' : undefined))
-    a(href='corrupti-quos-dolores.html') Corrupti quos Dolores`
+      li(class=(referencedFile === "aliquyam" ? "active" : undefined))
+        a(href="aliquyam.html") Aliquyam
+      li(class=(referencedFile === "erat" ? "active" : undefined))
+        a(href="erat.html") Erat Set Diam
+      li(class=(referencedFile === "voluptua" ? "active" : undefined))
+        a(href="voluptua.html") Voluptua
+  li(class=(referencedFile === "eos-et-accusamus" ? "active" : undefined))
+    a(href="eos-et-accusamus.html") Eos et Accusamus
+  li(class=(referencedFile === "iusto dignissimos" ? "active" : undefined))
+    a(href="iusto dignissimos.html") Iusto Dignissimos
+  li(class=(referencedFile === "corrupti-quos-dolores" ? "active" : undefined))
+    a(href="corrupti-quos-dolores.html") Corrupti quos Dolores`;
 
 export const navFooter = `ul
-  li(class=(referencedFile === 'quibusdam' ? 'active' : undefined))
-    a(href='quibusdam.html') Quibusdam
-  li(class=(referencedFile === 'rerum' ? 'active' : undefined))
-    a(href='rerum.html') Rerum
-  li(class=(referencedFile === 'sapiente' ? 'active' : undefined))
-    a(href='sapiente.html') Sapiente`;
+  li(class=(referencedFile === "quibusdam" ? "active" : undefined))
+    a(href="quibusdam.html") Quibusdam
+  li(class=(referencedFile === "rerum" ? "active" : undefined))
+    a(href="rerum.html") Rerum
+  li(class=(referencedFile === "sapiente" ? "active" : undefined))
+    a(href="sapiente.html") Sapiente`;
 
 export const navBreadcrumbs = [
     '<ol class="breadcrumb" itemprop="breadcrumb" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList"><li class="active" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem"><span itemprop="name">Start</span><meta itemprop="position" content="1"/></li></ol>',

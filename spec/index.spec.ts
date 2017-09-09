@@ -19,10 +19,10 @@ describe("Navigation: test writeNavigation", () => {
 
         let pug: string = navigation.writeNavigation("allplain");
         expect(pug.replace(/\r\n/g, "\n")).toEqual(`ul
-  li(class=(referencedFile === 'foo' ? 'active' : undefined))
-    a(href='foo.html') Foo
-  li(class=(referencedFile === 'bar' ? 'active' : undefined))
-    a(href='bar.html') Bar`);
+  li(class=(referencedFile === "foo" ? "active" : undefined))
+    a(href="foo.html") Foo
+  li(class=(referencedFile === "bar" ? "active" : undefined))
+    a(href="bar.html") Bar`);
 
         let html: string = navigation.writeNavigation("allplain", true);
         expect(html).toEqual(`<ul><li><a href="foo.html">Foo</a></li><li><a href="bar.html">Bar</a></li></ul>`);
@@ -33,10 +33,10 @@ describe("Navigation: test writeNavigation", () => {
 
         let pug: string = navigation.writeNavigation("allplain");
         expect(pug.replace(/\r\n/g, "\n")).toEqual(`ul
-  li(class=(referencedFile === 'foo' ? 'active' : undefined))
-    a(href='foo.html') Foo
-  li(class=(referencedFile === 'bar' ? 'active' : undefined))
-    a(href='bar.html') Bar`);
+  li(class=(referencedFile === "foo" ? "active" : undefined))
+    a(href="foo.html") Foo
+  li(class=(referencedFile === "bar" ? "active" : undefined))
+    a(href="bar.html") Bar`);
 
         let html: string = navigation.writeNavigation("allplain", true);
         expect(html).toEqual(`<ul><li><a href="foo.html">Foo</a></li><li><a href="bar.html">Bar</a></li></ul>`);
@@ -74,21 +74,21 @@ describe("Navigation: test getBreadcrumb", () => {
     it("available breadcrumbs are as expected", () => {
         let navigation: Navigation = new Navigation(StructureSimple);
 
-        expect(navigation.getBreadcrumb("foo").replace(/\r\n/g, "\n")).toEqual(`ol.breadcrumb(itemprop='breadcrumb' itemscope itemtype='http://schema.org/BreadcrumbList')
-  li(itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem')
-    a(itemprop='item' href='index.html')
-      span(itemprop='name') Start
-      meta(itemprop='position' content='1')
-  li.active(itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem')
-    span(itemprop='name') Foo
-    meta(itemprop='position' content='2')`);
-        expect(navigation.getBreadcrumb("bar").replace(/\r\n/g, "\n")).toEqual(`ol.breadcrumb(itemprop='breadcrumb' itemscope itemtype='http://schema.org/BreadcrumbList')
-  li(itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem')
-    a(itemprop='item' href='index.html')
-      span(itemprop='name') Start
-      meta(itemprop='position' content='1')
-  li.active(itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem')
-    span(itemprop='name') Bar
-    meta(itemprop='position' content='2')`);
+        expect(navigation.getBreadcrumb("foo").replace(/\r\n/g, "\n")).toEqual(`ol.breadcrumb(itemprop="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList")
+  li(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+    a(itemprop="item" href="index.html")
+      span(itemprop="name") Start
+      meta(itemprop="position" content="1")
+  li.active(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+    span(itemprop="name") Foo
+    meta(itemprop="position" content="2")`);
+        expect(navigation.getBreadcrumb("bar").replace(/\r\n/g, "\n")).toEqual(`ol.breadcrumb(itemprop="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList")
+  li(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+    a(itemprop="item" href="index.html")
+      span(itemprop="name") Start
+      meta(itemprop="position" content="1")
+  li.active(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+    span(itemprop="name") Bar
+    meta(itemprop="position" content="2")`);
     });
 });
