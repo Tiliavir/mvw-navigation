@@ -1,6 +1,6 @@
 {
   "name": "mvw-navigation",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Module to generate a site navigation from a given structure file.",
   "keywords": [
     "website",
@@ -15,13 +15,13 @@
   "types": "js/index.d.ts",
   "main": "js/index.js",
   "devDependencies": {
-    "@types/node": "8.0.31",
-    "@types/jasmine": "2.6.0",
+    "@types/node": "8.0.47",
+    "@types/jasmine": "2.6.2",
     "@types/jsonschema": "1.1.1",
     "@types/pug": "2.0.4",
     "jasmine": "2.8.0",
-    "typescript": "2.5.3",
-    "tslint": "5.7.0"
+    "typescript": "2.6.1",
+    "tslint": "5.8.0"
   },
   "dependencies": {
     "jsonschema": "~1.2.0",
