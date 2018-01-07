@@ -11,7 +11,7 @@ export const StructureSimple: any = [
     }
 ];
 
-export const StructureComplex: any =[
+export const StructureComplex: any = [
   {
     "referencedFile": "index",
     "navigation": "none",
