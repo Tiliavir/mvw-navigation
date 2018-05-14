@@ -113,7 +113,7 @@ navigation.getBreadcrumb("<filename>", true /* true for html, false for pug*/);
 ```
 
 ## Releases
-- **2.0.2** - **2.0.10**: dependency update
+- **2.0.2** - **2.0.12**: dependency update
 - **2.0.1**: dependency update, new test
 - **2.0.0**: bootstrap independent
 
