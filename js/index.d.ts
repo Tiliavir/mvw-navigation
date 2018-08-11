@@ -9,9 +9,9 @@ export declare class Navigation {
     private structure;
     private breadcrumbs;
     constructor(s: any, fileExtension?: string, breadcrumbStartNode?: INavigationNode);
-    private writeNavigationEntry(entry, n, type);
-    private renderBreadcrumb(breadcrumb);
-    private initBreadcrumbs(branch, path);
+    private writeNavigationEntry;
+    private renderBreadcrumb;
+    private initBreadcrumbs;
     writeNavigation(type: NavigationType, writeHtml?: boolean, excludedFromAllPlain?: string[]): string;
     getBreadcrumb(referencedFile: string, writeHtml?: boolean): string;
 }
