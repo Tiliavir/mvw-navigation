@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsonschema_1 = require("jsonschema");
 const pug_1 = require("pug");
-const site_structure_schema_1 = require("./site-structure-schema");
 const util_1 = require("./util");
+const SiteStructureSchema = require("./site-structure-schema");
 const NAV_CONST = {
     // dont show in navigation at all
     none: "none",
@@ -23,7 +23,7 @@ class Navigation {
         if (!util_1.isNullOrEmpty(fileExtension)) {
             this.fileExtension = `.${fileExtension}`;
         }
-        let validationResult = new jsonschema_1.Validator().validate(s, site_structure_schema_1.SiteStructureSchema);
+        let validationResult = new jsonschema_1.Validator().validate(s, SiteStructureSchema);
         if (!validationResult.valid) {
             console.error(validationResult);
             throw {
@@ -41,7 +41,7 @@ class Navigation {
         let pug = "";
         if (!util_1.isNullOrUndefined(entry)
             && entry.children
-            && (entry.children.filter((e) => { return e.navigation !== NAV_CONST.none; }).length > 0
+            && (entry.children.filter((e) => e.navigation !== NAV_CONST.none).length > 0
                 || type === NAV_CONST.allplain)) {
             pug = util_1.indent(n, true)
                 + "li"
@@ -87,15 +87,16 @@ class Navigation {
         }
         return pug;
     }
-    initBreadcrumbs(branch, path) {
+    initBreadcrumbs(node, path) {
         let fork = [...path];
-        if (branch.referencedFile != this.breadcrumbStartNode.referencedFile) {
+        if (node.referencedFile != this.breadcrumbStartNode.referencedFile) {
             fork.push({
-                title: branch.title,
-                referencedFile: branch.referencedFile
+                title: node.title,
+                referencedFile: node.referencedFile
             });
         }
-        this.breadcrumbs[branch.referencedFile] = fork;
+        this.breadcrumbs[node.referencedFile] = fork;
+        let branch = node;
         if (branch.children) {
             for (let child of branch.children) {
                 this.initBreadcrumbs(child, fork);

@@ -1,0 +1,90 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "IBranch": {
+            "additionalProperties": false,
+            "properties": {
+                "children": {
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/definitions/IBranch"
+                            },
+                            {
+                                "$ref": "#/definitions/IStructureNode"
+                            }
+                        ]
+                    },
+                    "title": "children",
+                    "type": "array"
+                },
+                "navigation": {
+                    "description": "Values can be any string. Special treatment for:\n- \"none\" : excluded from all navigations except \"allplain\"\n- \"top\" : default top navigation",
+                    "title": "navigation",
+                    "type": "string"
+                },
+                "title": {
+                    "title": "title",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "children",
+                "title"
+            ],
+            "title": "IBranch",
+            "type": "object"
+        },
+        "IStructureNode": {
+            "additionalProperties": false,
+            "properties": {
+                "children": {
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/definitions/IBranch"
+                            },
+                            {
+                                "$ref": "#/definitions/IStructureNode"
+                            }
+                        ]
+                    },
+                    "title": "children",
+                    "type": "array"
+                },
+                "navigation": {
+                    "description": "Values can be any string. Special treatment for:\n- \"none\" : excluded from all navigations except \"allplain\"\n- \"top\" : default top navigation",
+                    "title": "navigation",
+                    "type": "string"
+                },
+                "referencedFile": {
+                    "title": "referencedFile",
+                    "type": "string"
+                },
+                "title": {
+                    "title": "title",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "referencedFile",
+                "title"
+            ],
+            "title": "IStructureNode",
+            "type": "object"
+        }
+    },
+    "description": "Array of (child) elements in the site structure tree.",
+    "items": {
+        "anyOf": [
+            {
+                "$ref": "#/definitions/IBranch"
+            },
+            {
+                "$ref": "#/definitions/IStructureNode"
+            }
+        ]
+    },
+    "type": "array"
+}
+

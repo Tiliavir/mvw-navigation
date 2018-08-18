@@ -1,7 +1,8 @@
 ﻿import { Validator, ValidatorResult } from "jsonschema";
 import { render } from "pug";
-import { SiteStructureSchema } from "./site-structure-schema";
 import { isNullOrUndefined, isNullOrEmpty, indent } from "./util";
+
+const SiteStructureSchema: any = require("./site-structure-schema");
 
 const NAV_CONST: {none: string, top: string, allplain: string} = {
   // dont show in navigation at all
@@ -12,29 +13,46 @@ const NAV_CONST: {none: string, top: string, allplain: string} = {
   allplain: "allplain"
 };
 
-export interface INavigationNode {
+export interface IBreadcrumbNode {
   referencedFile: string;
   title: string;
 }
 
-interface IBranch extends INavigationNode {
-  children: IBranch[];
+interface INavigationNode {
+  title: string;
+  /**
+   * Values can be any string. Special treatment for:
+   * - "none" : excluded from all navigations except "allplain"
+   * - "top" : default top navigation
+   */
+  navigation?: NavigationType | "none";
 }
 
-interface IStructureNode extends INavigationNode {
-  navigation: NavigationType | "none";
-  children: IStructureNode[];
+export interface IBranch extends INavigationNode {
+  children: ConfigNode[];
 }
+
+export interface IStructureNode extends INavigationNode {
+  children?: ConfigNode[];
+  referencedFile: string;
+}
+
+type ConfigNode = IStructureNode | IBranch;
+
+/**
+ * Array of (child) elements in the site structure tree.
+ */
+export type StructureConfig = ConfigNode[];
 
 export type NavigationType = string | "allplain" | "top";
 
 export class Navigation {
-  private structure: IStructureNode[];
-  private breadcrumbs: { [referencedFile: string]: INavigationNode[] };
+  private structure: StructureConfig;
+  private breadcrumbs: { [referencedFile: string]: IBreadcrumbNode[] };
 
   public constructor(s: any,
                      private fileExtension: string = "html",
-                     private breadcrumbStartNode: INavigationNode = { title: "Start", referencedFile: "index" }) {
+                     private breadcrumbStartNode: IBreadcrumbNode = { title: "Start", referencedFile: "index" }) {
     if (isNullOrEmpty(s)) {
       console.warn("Empty structure provided!");
       s = [];
@@ -60,11 +78,11 @@ export class Navigation {
     }
   }
 
-  private writeNavigationEntry(entry: IStructureNode, n: number, type: NavigationType): string {
+  private writeNavigationEntry(entry: ConfigNode, n: number, type: NavigationType): string {
     let pug: string = "";
     if (!isNullOrUndefined(entry)
       && entry.children
-      && (entry.children.filter((e): boolean => { return e.navigation !== NAV_CONST.none; }).length > 0
+      && (entry.children.filter((e): boolean => e.navigation !== NAV_CONST.none).length > 0
         || type === NAV_CONST.allplain)) {
       pug = indent(n, true)
         + "li"
@@ -73,8 +91,8 @@ export class Navigation {
           : "")
         + indent(n + 2, true) + (type !== NAV_CONST.allplain
           ? "a(href=\"#\") "
-          : (entry.referencedFile
-            ? `a(href="${entry.referencedFile}${this.fileExtension}") `
+          : ((entry as IStructureNode).referencedFile
+            ? `a(href="${(entry as IStructureNode).referencedFile}${this.fileExtension}") `
             : "div "))
         + entry.title
         + indent(n + 2, true)
@@ -84,18 +102,18 @@ export class Navigation {
       }
     } else {
       if (type === NAV_CONST.allplain || entry.navigation !== NAV_CONST.none) {
-        pug = indent(n, true) + `li(class=(referencedFile === "${entry.referencedFile}" ? "active" : undefined))`
-            + indent(n + 2, true) + `a(href="${entry.referencedFile}${this.fileExtension}") `
+        pug = indent(n, true) + `li(class=(referencedFile === "${(entry as IStructureNode).referencedFile}" ? "active" : undefined))`
+            + indent(n + 2, true) + `a(href="${(entry as IStructureNode).referencedFile}${this.fileExtension}") `
             + entry.title;
       }
     }
     return pug;
   }
 
-  private renderBreadcrumb(breadcrumb: INavigationNode[]): string {
+  private renderBreadcrumb(breadcrumb: IBreadcrumbNode[]): string {
     let pug: string = `ol.breadcrumb(itemprop="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList")`;
     for (let i: number = 0; i < breadcrumb.length; i++) {
-      let bc: INavigationNode = breadcrumb[i];
+      let bc: IBreadcrumbNode = breadcrumb[i];
       if (isNullOrEmpty(bc.referencedFile) || i === breadcrumb.length - 1) {
         pug += indent(2, true) + `li${((i === breadcrumb.length - 1) ? ".active" : "")}(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")`
             + indent(4, true) + `span(itemprop="name") ${bc.title}`
@@ -110,18 +128,19 @@ export class Navigation {
     return pug;
   }
 
-  private initBreadcrumbs(branch: IBranch, path: INavigationNode[]): void {
-    let fork: INavigationNode[] = [...path];
+  private initBreadcrumbs(node: INavigationNode, path: IBreadcrumbNode[]): void {
+    let fork: IBreadcrumbNode[] = [...path];
 
-    if(branch.referencedFile != this.breadcrumbStartNode.referencedFile) {
+    if((node as IStructureNode).referencedFile != this.breadcrumbStartNode.referencedFile) {
       fork.push({
-        title: branch.title,
-        referencedFile: branch.referencedFile
+        title: node.title,
+        referencedFile: (node as IStructureNode).referencedFile
       });
     }
 
-    this.breadcrumbs[branch.referencedFile] = fork;
+    this.breadcrumbs[(node as IStructureNode).referencedFile] = fork;
 
+    let branch: IBranch = node as IBranch;
     if (branch.children) {
       for (let child of branch.children) {
         this.initBreadcrumbs(child, fork);
@@ -136,9 +155,9 @@ export class Navigation {
 
     if (!isNullOrUndefined(this.structure) && this.structure.length > 0) {
       for (let node of this.structure) {
-        if ((node.navigation || NAV_CONST.top) === type
+        if (((node as IStructureNode).navigation || NAV_CONST.top) === type
           || (type === NAV_CONST.allplain
-             && excludedFromAllPlain.indexOf(node.referencedFile) < 0)) {
+             && excludedFromAllPlain.indexOf((node as IStructureNode).referencedFile) < 0)) {
           pug += this.writeNavigationEntry(node, 2, type);
         }
       }
@@ -148,7 +167,7 @@ export class Navigation {
   }
 
   public getBreadcrumb(referencedFile: string, writeHtml: boolean = false): string {
-    let bc: INavigationNode[] = this.breadcrumbs[referencedFile];
+    let bc: IBreadcrumbNode[] = this.breadcrumbs[referencedFile];
     if (!bc) {
       throw {
         name: "ElementNotFound",

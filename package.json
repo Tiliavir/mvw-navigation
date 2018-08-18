@@ -1,6 +1,6 @@
 {
   "name": "mvw-navigation",
-  "version": "2.0.13",
+  "version": "2.1.0",
   "description": "Module to generate a site navigation from a given structure file.",
   "keywords": [
     "website",
@@ -21,7 +21,8 @@
     "@types/pug": "2.0.4",
     "jasmine": "3.2.0",
     "typescript": "3.0.1",
-    "tslint": "5.11.0"
+    "tslint": "5.11.0",
+    "typescript-json-schema": "0.31.0"
   },
   "dependencies": {
     "jsonschema": "~1.2.4",
@@ -29,7 +30,8 @@
   },
   "scripts": {
     "build": "tsc -p ./ts",
-    "test": "tslint --project ./ts && tsc -p ./ts && tsc -p ./spec && jasmine"
+    "postbuild": "typescript-json-schema ./ts/tsconfig.json StructureConfig --titles --required --excludePrivate --noExtraProps > ./js/site-structure-schema.json",
+    "test": "tslint --project ./ts && npm run build && tsc -p ./spec && jasmine"
   },
   "repository": {
     "type": "git",
