@@ -1,5 +1,8 @@
 {
     "typescript.tsdk": "./node_modules/typescript/lib",
     "editor.renderWhitespace": "all",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "cSpell.words": [
+        "allplain"
+    ]
 }

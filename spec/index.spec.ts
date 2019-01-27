@@ -1,5 +1,5 @@
 import { Navigation } from "../ts/index";
-import { StructureSimple, StructureComplex, StructureComplexFileNames } from "./structures";
+import { StructureSimple, StructureComplex, StructureComplexFileNames, StructureWithExternal } from "./structures";
 import { navAll, navBreadcrumbs, navFooter, navTop } from "./results";
 
 describe("Navigation: test writeNavigation", () => {
@@ -19,9 +19,9 @@ describe("Navigation: test writeNavigation", () => {
 
         let pug: string = navigation.writeNavigation("allplain");
         expect(pug.replace(/\r\n/g, "\n")).toEqual(`ul
-  li(class=(referencedFile === "foo" ? "active" : undefined))
+  li(class=(reference === "foo" ? "active" : undefined))
     a(href="foo.html") Foo
-  li(class=(referencedFile === "bar" ? "active" : undefined))
+  li(class=(reference === "bar" ? "active" : undefined))
     a(href="bar.html") Bar`);
 
         let html: string = navigation.writeNavigation("allplain", true);
@@ -29,17 +29,31 @@ describe("Navigation: test writeNavigation", () => {
     });
 
     it("Navigation: simple structure", () => {
-        let navigation: Navigation = new Navigation(StructureSimple, "html", {referencedFile: "index", title: "Start"});
+        let navigation: Navigation = new Navigation(StructureSimple, "html", {reference: "index", title: "Start"});
 
         let pug: string = navigation.writeNavigation("allplain");
         expect(pug.replace(/\r\n/g, "\n")).toEqual(`ul
-  li(class=(referencedFile === "foo" ? "active" : undefined))
+  li(class=(reference === "foo" ? "active" : undefined))
     a(href="foo.html") Foo
-  li(class=(referencedFile === "bar" ? "active" : undefined))
+  li(class=(reference === "bar" ? "active" : undefined))
     a(href="bar.html") Bar`);
 
         let html: string = navigation.writeNavigation("allplain", true);
         expect(html).toEqual(`<ul><li><a href="foo.html">Foo</a></li><li><a href="bar.html">Bar</a></li></ul>`);
+    });
+
+    it("Navigation: simple structure with external", () => {
+        let navigation: Navigation = new Navigation(StructureWithExternal, "html", {reference: "index", title: "Start"});
+
+        let pug: string = navigation.writeNavigation("allplain");
+        expect(pug.replace(/\r\n/g, "\n")).toEqual(`ul
+  li(class=(reference === "foo" ? "active" : undefined))
+    a(href="foo.html") Foo
+  li
+    a(href="http://www.google.com/") Bar`);
+
+        let html: string = navigation.writeNavigation("allplain", true);
+        expect(html).toEqual(`<ul><li><a href="foo.html">Foo</a></li><li><a href="http://www.google.com/">Bar</a></li></ul>`);
     });
 
     it("complex structure", () => {

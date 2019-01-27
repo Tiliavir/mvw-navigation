@@ -113,7 +113,9 @@ navigation.getBreadcrumb("<filename>", true /* true for html, false for pug*/);
 ```
 
 ## Releases
-- **2.0.2** - **2.0.12**: dependency update
+- **3.0.0**: added `isExternal` and renamed `referencedFile` to `reference`
+- **2.1.0**: Changed generation of schema json
+- **2.0.2** - **2.0.13**: dependency update
 - **2.0.1**: dependency update, new test
 - **2.0.0**: bootstrap independent
 

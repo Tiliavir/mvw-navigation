@@ -3,52 +3,64 @@ export let StructureComplexFileNames: string[] = ["index", "dolor", "neo", "amet
 export const StructureSimple: any = [
     {
         title: "Foo",
-        referencedFile: "foo"
+        reference: "foo"
     },
     {
         title: "Bar",
-        referencedFile: "bar"
+        reference: "bar"
     }
+];
+
+export const StructureWithExternal: any = [
+  {
+      title: "Foo",
+      reference: "foo"
+  },
+  {
+      title: "Bar",
+      reference: "http://www.google.com/",
+      isExternal: true
+  }
 ];
 
 export const StructureComplex: any = [
   {
-    "referencedFile": "index",
+    "reference": "index",
     "navigation": "none",
     "title": "Lorem Impsum"
   },
   {
-    "referencedFile": "dolor",
+    "reference": "dolor",
     "title": "Dolor Sit"
   },
   {
-    "referencedFile": "neo",
+    "reference": "neo",
     "title": "Neo"
   },
   {
     "children": [
       {
-        "referencedFile": "amet",
+        "reference": "amet",
         "title": "Amet Consetetur"
       },
       {
-        "referencedFile": "sadipsicng",
+        "reference": "sadipsicng",
         "title": "Sadipscing Elitr"
       },
       {
-        "referencedFile": "sed",
+        "reference": "sed",
         "title": "Sed Diam"
       },
       {
-        "referencedFile": "nonumy",
+        "reference": "nonumy",
         "title": "Nonumy Eirmod"
       },
       {
-        "referencedFile": "tempor",
+        "reference": "tempor",
         "title": "Tempor"
       },
       {
-        "referencedFile": "invidunt",
+        "reference": "invidunt",
         "title": "Invidunt ut Labore"
       }
     ],
@@ -57,78 +69,78 @@ export const StructureComplex: any = [
   {
     "children": [
       {
-        "referencedFile": "aliquyam",
+        "reference": "aliquyam",
         "title": "Aliquyam"
       },
       {
-        "referencedFile": "erat",
+        "reference": "erat",
         "title": "Erat Set Diam"
       },
       {
-        "referencedFile": "voluptua",
+        "reference": "voluptua",
         "title": "Voluptua"
       }
     ],
     "title": "At vero"
   },
   {
-    "referencedFile": "eos-et-accusamus",
+    "reference": "eos-et-accusamus",
     "title": "Eos et Accusamus"
   },
   {
-    "referencedFile": "iusto dignissimos",
+    "reference": "iusto dignissimos",
     "title": "Iusto Dignissimos"
   },
   {
-    "referencedFile": "corrupti-quos-dolores",
+    "reference": "corrupti-quos-dolores",
     "title": "Corrupti quos Dolores"
   },
   {
     "children": [
       {
-        "referencedFile": "voluptatibus",
+        "reference": "voluptatibus",
         "navigation": "none",
         "title": "Voluptatibus"
       },
       {
-        "referencedFile": "denounce",
+        "reference": "denounce",
         "navigation": "none",
         "title": "Denounce"
       },
       {
-        "referencedFile": "molestias-excepturi",
+        "reference": "molestias-excepturi",
         "navigation": "none",
         "title": "Molestias Excepturi"
       }
     ],
-    "referencedFile": "quibusdam",
+    "reference": "quibusdam",
     "navigation": "footer",
     "title": "Quibusdam"
   },
   {
     "title": "Rerum",
-    "referencedFile": "rerum",
+    "reference": "rerum",
     "navigation": "footer"
   },
   {
     "title": "Sapiente",
-    "referencedFile": "sapiente",
+    "reference": "sapiente",
     "navigation": "footer"
   },
   {
     "children": [
       {
-        "referencedFile": "foo_1-recusandae",
+        "reference": "foo_1-recusandae",
         "navigation": "none",
         "title": "Recusandae"
       },
       {
-        "referencedFile": "bar_2-impedit-quo-minus-id",
+        "reference": "bar_2-impedit-quo-minus-id",
         "navigation": "none",
         "title": "Impedit quo minus id"
       },
       {
-        "referencedFile": "baz_3-rerum-hic",
+        "reference": "baz_3-rerum-hic",
         "navigation": "none",
         "title": "Rerum Hic"
       }
@@ -137,12 +149,12 @@ export const StructureComplex: any = [
     "title": "Earum"
   },
   {
-    "referencedFile": "404",
+    "reference": "404",
     "navigation": "none",
     "title": "Page not found!"
   },
   {
-    "referencedFile": "401",
+    "reference": "401",
     "navigation": "none",
     "title": "Unauthorized!"
   }
