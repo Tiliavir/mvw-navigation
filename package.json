@@ -22,7 +22,8 @@
     "jasmine": "3.5.0",
     "typescript": "3.6.3",
     "tslint": "5.20.0",
-    "typescript-json-schema": "0.40.0"
+    "typescript-json-schema": "0.40.0",
+    "copyfiles": "2.1.1"
   },
   "dependencies": {
     "jsonschema": "~1.2.4",
@@ -30,7 +31,7 @@
   },
   "scripts": {
     "build": "tsc -p ./ts",
-    "postbuild": "typescript-json-schema ./ts/tsconfig.json StructureConfig --titles --required --excludePrivate --noExtraProps > ./js/site-structure-schema.json",
+    "postbuild": "typescript-json-schema ./ts/tsconfig.json StructureConfig --titles --required --excludePrivate --noExtraProps > ./js/site-structure-schema.json && copyfiles -u 1 ./js/site-structure-schema.json ./spec/js/ts/",
     "test": "tslint --project ./ts && npm run build && tsc -p ./spec && jasmine"
   },
   "repository": {
