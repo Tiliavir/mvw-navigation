@@ -1,6 +1,5 @@
 # MVW Navigation
 
-[![Build Status](https://travis-ci.com/Tiliavir/mvw-navigation.svg?branch=master)](https://travis-ci.com/tiliavir/mvw-navigation)
 [![NPM version](https://img.shields.io/npm/v/mvw-navigation.svg?style=flat)](https://www.npmjs.com/package/mvw-navigation)
 
 ## Description
