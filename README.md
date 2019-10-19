@@ -1,4 +1,8 @@
 # MVW Navigation
+
+[![Build State](https://github.com/Tiliavir/mvw-navigation/workflows/Node%20CI/badge.svg)](https://github.com/Tiliavir/mvw-navigation/actions)
+[![NPM version](https://img.shields.io/npm/v/mvw-navigation.svg?style=flat)](https://www.npmjs.com/package/mvw-navigation)
+
 ## Description
 This small module can be used to create an HTML navigation from a given JSON file
 containing the structure of the site. It also supports the generation of
