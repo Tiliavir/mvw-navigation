@@ -15,12 +15,12 @@
   "types": "js/index.d.ts",
   "main": "js/index.js",
   "devDependencies": {
-    "@types/node": "12.11.7",
-    "@types/jasmine": "3.4.4",
+    "@types/node": "12.12.5",
+    "@types/jasmine": "3.4.5",
     "@types/jsonschema": "1.1.1",
     "@types/pug": "2.0.4",
     "jasmine": "3.5.0",
-    "typescript": "3.6.4",
+    "typescript": "3.7.2",
     "tslint": "5.20.0",
     "typescript-json-schema": "0.40.0",
     "copyfiles": "2.1.1"
