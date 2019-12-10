@@ -15,18 +15,18 @@
   "types": "js/index.d.ts",
   "main": "js/index.js",
   "devDependencies": {
-    "@types/node": "12.12.14",
+    "@types/node": "12.12.16",
     "@types/jasmine": "3.5.0",
     "@types/jsonschema": "1.1.1",
     "@types/pug": "2.0.4",
     "jasmine": "3.5.0",
-    "typescript": "3.7.2",
+    "typescript": "3.7.3",
     "tslint": "5.20.1",
-    "typescript-json-schema": "0.40.0",
+    "typescript-json-schema": "0.41.0",
     "copyfiles": "2.1.1"
   },
   "dependencies": {
-    "jsonschema": "~1.2.4",
+    "jsonschema": "~1.2.5",
     "pug": "~2.0.4"
   },
   "scripts": {
