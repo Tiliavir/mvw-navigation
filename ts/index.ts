@@ -158,26 +158,16 @@ export class Navigation {
     let pug: string = `ol.breadcrumb(itemprop="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList")`;
     for (let i: number = 0; i < breadcrumb.length; i++) {
       const bc: IBreadcrumbNode = breadcrumb[i];
-      if (isNullOrEmpty(bc.reference) || i === breadcrumb.length - 1) {
-        pug +=
-          indent(2, true) +
-          `li${
-            i === breadcrumb.length - 1 ? ".active" : ""
-          }(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")` +
-          indent(4, true) +
-          `span(itemprop="name") ${bc.title}` +
-          indent(4, true) +
-          `meta(itemprop="position" content="${i + 1}")`;
+      if (i === breadcrumb.length - 1) {
+        pug += indent(2, true) + `li${i === breadcrumb.length - 1 ? ".active" : ""}(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")`
+            + indent(4, true) + `span(itemprop="name") ${bc.title}`
+            + indent(4, true) + `meta(itemprop="position" content="${i + 1}")`;
       } else {
-        pug +=
-          indent(2, true) +
-          `li(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")` +
-          indent(4, true) +
-          `a(itemprop="item" href="${bc.reference}${this.fileExtension}")` +
-          indent(6, true) +
-          `span(itemprop="name") ${bc.title}` +
-          indent(6, true) +
-          `meta(itemprop="position" content="${i + 1}")`;
+        const reference = isNullOrEmpty(bc.reference) ? "#" : bc.reference + this.fileExtension;
+        pug += indent(2, true) + `li(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")`
+            + indent(4, true) + `a(itemprop="item" href="${reference}")`
+            + indent(6, true) + `span(itemprop="name") ${bc.title}`
+            + indent(6, true) + `meta(itemprop="position" content="${i + 1}")`;
       }
     }
     return pug;
