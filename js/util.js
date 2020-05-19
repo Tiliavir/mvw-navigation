@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.indent = exports.isNullOrEmpty = exports.isNullOrUndefined = void 0;
 const os_1 = require("os");
 exports.isNullOrUndefined = (o) => {
     return o === null || o === undefined;
