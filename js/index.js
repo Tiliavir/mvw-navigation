@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Navigation = void 0;
 const jsonschema_1 = require("jsonschema");
 const pug_1 = require("pug");
 const util_1 = require("./util");
