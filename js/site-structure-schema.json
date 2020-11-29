@@ -1,19 +1,23 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
+        "ConfigNode": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/IBranch"
+                },
+                {
+                    "$ref": "#/definitions/IStructureNode"
+                }
+            ],
+            "title": "ConfigNode"
+        },
         "IBranch": {
             "additionalProperties": false,
             "properties": {
                 "children": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/definitions/IBranch"
-                            },
-                            {
-                                "$ref": "#/definitions/IStructureNode"
-                            }
-                        ]
+                        "$ref": "#/definitions/ConfigNode"
                     },
                     "title": "children",
                     "type": "array"
@@ -40,14 +44,7 @@
             "properties": {
                 "children": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/definitions/IBranch"
-                            },
-                            {
-                                "$ref": "#/definitions/IStructureNode"
-                            }
-                        ]
+                        "$ref": "#/definitions/ConfigNode"
                     },
                     "title": "children",
                     "type": "array"
@@ -80,14 +77,7 @@
     },
     "description": "Array of (child) elements in the site structure tree.",
     "items": {
-        "anyOf": [
-            {
-                "$ref": "#/definitions/IBranch"
-            },
-            {
-                "$ref": "#/definitions/IStructureNode"
-            }
-        ]
+        "$ref": "#/definitions/ConfigNode"
     },
     "type": "array"
 }
