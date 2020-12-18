@@ -2,6 +2,7 @@ name: Update Dependencies
 on:
   schedule:
     - cron:  '16 17 * * 2'
+  workflow_dispatch:
 jobs:
   update-deps:
     runs-on: ubuntu-latest
@@ -9,7 +10,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '14.x'
       - name: Update dependencies
         id: vars
         run: |
@@ -26,6 +27,7 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
+          base: master
           branch: dependencies
           branch-suffix: timestamp
           delete-branch: true
